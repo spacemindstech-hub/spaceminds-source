@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { background: #02060F; color: #EEF3FA; }
+body { font-family: Figtree, system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+::selection { background: #4B0082; color: #FFFFFF; }
+:focus-visible { outline: 2px solid #9D4EDD; outline-offset: 3px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; } }
+
+/* ---- SpaceMinds effects ---- */
+@keyframes sm-spin { to { transform: rotate(360deg); } }
+.sm-meteor { position: absolute; top: -10%; height: 1px; width: 1px; border-radius: 9999px; background: #C9A0F5; box-shadow: 0 0 0 1px rgba(255,255,255,0.06); transform: rotate(215deg); animation: sm-meteor linear infinite; }
+.sm-meteor::before { content: ''; position: absolute; top: 50%; right: 0; height: 1px; width: 70px; transform: translateY(-50%); background: linear-gradient(90deg, #C9A0F5, transparent); }
+@keyframes sm-meteor { 0% { transform: rotate(215deg) translateX(0); opacity: 1; } 70% { opacity: 1; } 100% { transform: rotate(215deg) translateX(-620px); opacity: 0; } }
+.sm-flow { stroke-dasharray: 6 8; animation: sm-flow 1.6s linear infinite; }
+@keyframes sm-flow { to { stroke-dashoffset: -28; } }
+.sm-bob { animation: sm-bob 3s ease-in-out infinite; }
+@keyframes sm-bob { 50% { transform: translateX(10px); } }
+.sm-particle { animation: sm-particle 1.4s ease-in-out infinite alternate; }
+@keyframes sm-particle { to { transform: translate(6px, -3px); opacity: .3; } }
+.sm-pulse { stroke-dasharray: 10 200; animation: sm-pulse 1.8s linear infinite; }
+@keyframes sm-pulse { from { stroke-dashoffset: 210; } to { stroke-dashoffset: 0; } }
+.sm-wave { stroke-dasharray: 600; animation: sm-wave 3s ease-in-out infinite; }
+@keyframes sm-wave { 0% { stroke-dashoffset: 600; } 60%,100% { stroke-dashoffset: 0; } }
+.sm-ring { transform-origin: 40px 30px; animation: sm-ring 2.4s ease-out infinite; }
+@keyframes sm-ring { from { transform: scale(.4); opacity: 1; } to { transform: scale(3.2); opacity: 0; } }
+.sm-scan { background: linear-gradient(180deg, transparent, rgba(142,216,255,0.18), transparent); animation: sm-scan 3.2s ease-in-out infinite; }
+@keyframes sm-scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+.sm-grid { background-image: linear-gradient(rgba(142,216,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(142,216,255,0.06) 1px, transparent 1px); background-size: 28px 28px; }
+.sm-rot-in { animation: sm-rot-in .55s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes sm-rot-in { from { transform: translateY(110%); opacity: 0; } to { transform: none; opacity: 1; } }
+.sm-orbit-sat { offset-path: path("M15 200 A185 70 0 1 1 385 200 A185 70 0 1 1 15 200"); animation: sm-orbit-sat 14s linear infinite; }
+@keyframes sm-orbit-sat { to { offset-distance: 100%; } }
+.sm-ring2 { transform-origin: 200px 175px; animation: sm-ring2 2.4s ease-out infinite; }
+@keyframes sm-ring2 { from { transform: scale(.5); opacity: 1; } to { transform: scale(4); opacity: 0; } }
+
+/* WebGL layer: sized to the largest viewport so mobile address-bar show/hide never resizes the renderer */
+.sm-canvas { height: 100vh; height: 100lvh; }
+
+/* hero copy entrance: compositor-only properties */
+.sm-fade-up { animation: sm-fade-up .9s cubic-bezier(.2,.7,.2,1) .35s both; }
+@keyframes sm-fade-up { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
